@@ -28,6 +28,6 @@ Examples
     X = octave.run(nargout=1, target='ones(4, 3) * 255;')
     print(X)
 
-## Requirements
-* `python 3`
-* `scipy`
+# Requirements
+* `Python 3`
+* `SciPy`
