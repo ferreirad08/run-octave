@@ -11,7 +11,7 @@ setup(
     description='A package to glitch images and GIFs, with highly customizable options!',
     long_description=readme,
     long_description_content_type='text/markdown',
-    url='https://github.com/TotallyNotChase/Glitch-and-Gif',
+    url='https://github.com/ferreirad08/pyoctave',
     packages=find_packages(),
     entry_points={
         'console_scripts':['glitch_this=glitch_this.commandline:main'],
