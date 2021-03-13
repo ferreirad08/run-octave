@@ -17,13 +17,13 @@ setup(
         'console_scripts':['glitch_this=glitch_this.commandline:main'],
     },
     install_requires=[
-        'Pillow>=6.2.1',
-        'numpy>=1.18.1',
+        'SciPy>=1.6.0',
+        'GNU Octave>=5.2.0',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.8.6',
 )
