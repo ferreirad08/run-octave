@@ -17,8 +17,7 @@ setup(
         'console_scripts':['glitch_this=glitch_this.commandline:main'],
     },
     install_requires=[
-        'SciPy>=1.6.0',
-        'GNU Octave>=5.2.0',
+        'scipy>=1.6.0',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
