@@ -13,6 +13,7 @@ class Pyoctave:
 
         # Getting PATH of temp files
         self.lib_path = path.split(path.abspath(__file__))[0]
+        # print(self.lib_path)
         self.file_path = path.join(self.lib_path, 'data.mat').replace('\\','/')
 
 
