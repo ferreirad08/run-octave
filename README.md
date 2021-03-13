@@ -5,9 +5,8 @@
 
 Run Octave functions and scripts in the Python interpreter
 [link para o Google!] (Http://google.com)
-Requirements
-
-    Install Octave [link para o Google!](Http://google.com) in advance (https://www.gnu.org/software/octave/index)
+Requirements:
+Install Octave [link para o Google!](Http://google.com) in advance (https://www.gnu.org/software/octave/index)
 
 Examples
         
