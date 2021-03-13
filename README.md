@@ -4,9 +4,9 @@
 [![Linkedin](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/david-f-3a918ba5)
 
 Run Octave functions and scripts in the Python interpreter
-[link para o Google!](Http://google.com)
+
 Requirements:
-Install Octave [link para o Google!](Http://google.com) in advance (https://www.gnu.org/software/octave/index)
+Install [Octave](https://www.gnu.org/software/octave/index) in advance
 
 Examples
         
