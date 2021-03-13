@@ -38,11 +38,11 @@ class Pyoctave:
             syntax = '[' + varargout + ']=' + syntax
 
         # Auxiliary function
-        with open('af.m', 'w') as MAT_file:
+        with open('temp_af.m', 'w') as MAT_file:
             print(f'load("{self.file_path}")\n{syntax}\nsave("-mat-binary","{self.file_path}")', file=MAT_file)
 
-        system(self.octave_path + ' af.m')  # Executes the auxiliary function
-        remove('af.m')
+        system(self.octave_path + ' temp_af.m')  # Executes the auxiliary function
+        remove('temp_af.m')
 
         data = loadmat(self.file_path)  # Read the communication channel
 
