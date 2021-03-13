@@ -5,8 +5,7 @@
 
 Run Octave functions and scripts in the Python interpreter
 
-Requirements:
-Install [Octave](https://www.gnu.org/software/octave/index) in advance
+**Note**: Install [Octave](https://www.gnu.org/software/octave/index) in advance
 
 Examples
         
