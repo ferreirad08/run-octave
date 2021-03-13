@@ -8,7 +8,7 @@ setup(
     version='1.0.0',
     author='ferreirad08',
     author_email='ferreirad08@gmail.com',
-    description='A package to glitch images and GIFs, with highly customizable options!',
+    description='A package to run Octave functions and scripts in the Python interpreter!',
     long_description=readme,
     long_description_content_type='text/markdown',
     url='https://github.com/ferreirad08/pyoctave',
