@@ -7,7 +7,7 @@ Run Octave functions and scripts in the Python interpreter
 
 **Note**: Install [Octave](https://www.gnu.org/software/octave/index) in advance
 
-Examples
+## Examples
         
     from pyoctave import Pyoctave
     import numpy as np
@@ -28,6 +28,6 @@ Examples
     X = octave.run(nargout=1, target='ones(4, 3) * 255;')
     print(X)
 
-# Requirements
+## Requirements
 * `Python 3`
 * `SciPy`
