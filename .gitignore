@@ -3,3 +3,4 @@
 # Ignore some file formats
 *.m
 *.mat
+*.pyc
