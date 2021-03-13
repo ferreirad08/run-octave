@@ -27,3 +27,7 @@ Examples
     # Inserting expressions directly
     X = octave.run(nargout=1, target='ones(4, 3) * 255;')
     print(X)
+
+## Requirements
+* `python 3`
+* `scipy`
