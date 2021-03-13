@@ -5,6 +5,10 @@
 
 Run Octave functions and scripts in the Python interpreter
 
+Requirements
+
+    Install Octave in advance
+
 Examples
         
     from pyoctave import Pyoctave
