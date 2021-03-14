@@ -14,7 +14,8 @@ class RunOctave:
         # Getting PATH of temp files
         self.lib_path = path.split(path.abspath(__file__))[0]
         # print(self.lib_path)
-        self.file_path = path.join(self.lib_path, 'data.mat').replace('\\','/')
+        self.tempdata_path = path.join(self.lib_path, 'tempdata.mat').replace('\\','/')
+        self.tempscript_path = path.join(self.lib_path, 'tempscript.m').replace('\\','/')
 
 
     def run(self, target, args=None, nargout=0):
@@ -24,7 +25,7 @@ class RunOctave:
             syntax = target + '(' + varargin + ');'
 
             # Write in the communication channel
-            savemat(self.file_path, dict(zip(self.alphabet[:nargin], args)))
+            savemat(self.tempdata_path, dict(zip(self.alphabet[:nargin], args)))
         else:
             if any(c in target for c in "[]=(,) '+-*/:"):
                 syntax = target
@@ -32,20 +33,19 @@ class RunOctave:
                 syntax = target + '();'
 
             # Write in the communication channel
-            savemat(self.file_path, {'None': []})
+            savemat(self.tempdata_path, {'None': []})
 
         if nargout > 0:
             varargout = self.CSL[:nargout*2-1]
             syntax = '[' + varargout + ']=' + syntax
 
         # Auxiliary function
-        with open('temp_af.m', 'w') as MAT_file:
-            print(f'load("{self.file_path}")\n{syntax}\nsave("-mat-binary","{self.file_path}")', file=MAT_file)
+        with open(self.tempscript_path, 'w') as MAT_file:
+            print(f'load("{self.tempdata_path}")\n{syntax}\nsave("-mat-binary","{self.tempdata_path}")', file=MAT_file)
 
-        system(self.octave_path + ' temp_af.m')  # Executes the auxiliary function
-        remove('temp_af.m')
+        system(self.octave_path + ' ' + self.tempscript_path)  # Executes the auxiliary function
 
-        data = loadmat(self.file_path)  # Read the communication channel
+        data = loadmat(self.tempdata_path)  # Read the communication channel
 
         ret = [data[key] for key in self.alphabet[:nargout]]
 
