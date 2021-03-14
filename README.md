@@ -8,7 +8,7 @@ Run Octave functions and scripts in the Python interpreter
 ## Requirements
 * [Python 3](https://www.python.org/)
 * [SciPy](https://www.scipy.org/)
-* [GNU Octave](https://www.gnu.org/software/octave/index)
+* [GNU Octave](https://www.gnu.org/software/octave/index) (**Nota**: install in advance)
 
 ## Examples
         
