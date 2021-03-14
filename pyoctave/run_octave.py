@@ -2,7 +2,7 @@ from scipy.io import loadmat, savemat
 from os import path, system, remove
 
 
-class Pyoctave:
+class RunOctave:
 
     __version__ = '1.0.0'
 
