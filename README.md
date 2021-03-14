@@ -27,6 +27,9 @@ Run Octave functions and scripts in the Python interpreter
     m, n = octave.run(nargout=2, target='size', args=(A,))
     print(m, n)
 
+    N = octave.run(nargout=1, target='vecnorm', args=(A, 2, 2))
+    print(N)
+
     # Inserting expressions directly
     X = octave.run(nargout=1, target='ones(4, 3) * 255;')
     print(X)
