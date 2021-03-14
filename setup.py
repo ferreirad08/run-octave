@@ -4,14 +4,14 @@ with open('README.md', 'r') as readmefile:
     readme = readmefile.read()
 
 setup(
-    name='pyoctave',
+    name='run_octave',
     version='1.0.0',
     author='David Ferreira, M.Sc.',
     author_email='ferreirad08@gmail.com',
     description='A package to run Octave functions and scripts in the Python interpreter!',
     long_description=readme,
     long_description_content_type='text/markdown',
-    url='https://github.com/ferreirad08/pyoctave',
+    url='https://github.com/ferreirad08/run-octave',
     packages=find_packages(),
     install_requires=[
         'scipy>=1.6.0',
