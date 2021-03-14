@@ -5,8 +5,8 @@ with open('README.md', 'r') as readmefile:
 
 setup(
     name='run_octave',
-    version='1.0.0',
-    author='David Ferreira, M.Sc.',
+    version='1.0.1',
+    author='David Ferreira',
     author_email='ferreirad08@gmail.com',
     description='A package to run Octave functions and scripts in the Python interpreter!',
     long_description=readme,
