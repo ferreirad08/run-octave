@@ -1,1 +1,1 @@
-from .pyoctave import Pyoctave
+from .run_octave import RunOctave
