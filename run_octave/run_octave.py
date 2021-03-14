@@ -1,5 +1,5 @@
 from scipy.io import loadmat, savemat
-from os import path, system, remove
+from os import path, system
 
 
 class RunOctave:
