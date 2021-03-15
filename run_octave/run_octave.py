@@ -4,7 +4,7 @@ from os import path, system
 
 class RunOctave:
 
-    __version__ = '1.0.0'
+    __version__ = '1.0.1'
 
     def __init__(self, octave_path):
         self.octave_path = octave_path
