@@ -2,6 +2,7 @@ from run_octave import RunOctave
 import numpy as np
 
 # Create the Pyoctave object and explicitly add the path to octave-gui.exe
+#octave = RunOctave(octave_path='C:/Program Files/GNU Octave/Octave-6.2.0/mingw64/bin/octave-gui.exe')
 octave = RunOctave(octave_path='C:/Octave/Octave-5.2.0/mingw64/bin/octave-gui.exe')
 
 A = np.array([[ 2, 0, 1],
