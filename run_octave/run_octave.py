@@ -7,7 +7,7 @@ class RunOctave:
     __version__ = '1.0.1'
 
     def __init__(self, octave_path):
-        self.octave_path = octave_path
+        self.octave_path = octave_path.replace(' ','" "'))
         self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
         self.CSL = ','.join(self.alphabet)  # Comma-separated letters
 
