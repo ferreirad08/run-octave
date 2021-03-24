@@ -1,7 +1,6 @@
 # run-octave
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ferreirad08/run-octave/blob/main/LICENSE)
-[![Linkedin](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/david-f-3a918ba5)
 
 Run Octave functions and scripts in the Python interpreter
 
