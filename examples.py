@@ -27,4 +27,6 @@ octave.run(target='disp', args=(S,))
 X = octave.run(nargout=1, target='ones(4, 3) * 255;')
 print(X)
 
+octave.run("S = 'Hello World.'; disp(S)")
+
 octave.run(target='ones(4, 3) * 255')  # Expression without semicolon
