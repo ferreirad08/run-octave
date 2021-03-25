@@ -5,7 +5,7 @@
 A package to run Octave functions and scripts in the Python interpreter!
 
 ## Nota
-* Install in advance the [GNU Octave](https://www.gnu.org/software/octave/index).
+* Install [GNU Octave](https://www.gnu.org/software/octave/index).
 
 ## Requirements
 * `python 3`
