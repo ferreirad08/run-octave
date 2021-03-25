@@ -9,6 +9,9 @@ A package to run Octave functions and scripts in the Python interpreter!
 * [scipy](https://www.scipy.org/)
 * [GNU Octave](https://www.gnu.org/software/octave/index) (**Nota**: install in advance)
 
+## Requirements
+* 'scipy'
+
 ## Installation
 
 Simply install run-octave package from [PyPI](https://pypi.org/project/run-octave/)
