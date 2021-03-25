@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ferreirad08/run-octave/blob/main/LICENSE)
 
-Run Octave functions and scripts in the Python interpreter
+A package to run Octave functions and scripts in the Python interpreter!
 
 ## Requirements
 * [Python 3](https://www.python.org/)
