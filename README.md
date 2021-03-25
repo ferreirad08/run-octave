@@ -9,6 +9,12 @@ Run Octave functions and scripts in the Python interpreter
 * [SciPy](https://www.scipy.org/)
 * [GNU Octave](https://www.gnu.org/software/octave/index) (**Nota**: install in advance)
 
+## Installation
+
+Simply install `run-octave` from [PyPI](https://pypi.org/project/run-octave/)
+
+    pip install run-octave
+
 ## Examples
         
     from run_octave import RunOctave
@@ -33,9 +39,3 @@ Run Octave functions and scripts in the Python interpreter
     # Inserting expressions directly
     X = octave.run(nargout=1, target='ones(4, 3) * 255;')
     print(X)
-
-## Installation
-
-Simply install `run-octave` from [PyPI](https://pypi.org/project/run-octave/)
-
-    pip install run-octave
