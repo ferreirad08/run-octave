@@ -5,10 +5,10 @@ with open('README.md', 'r') as readmefile:
 
 setup(
     name='run_octave',
-    version='1.0.1',
+    version='1.0.2',
     author='David Ferreira',
     author_email='ferreirad08@gmail.com',
-    description='A package to run Octave functions and scripts in the Python interpreter!',
+    description='A package for running Octave functions and calling Scripts in the Python interpreter!',
     long_description=readme,
     long_description_content_type='text/markdown',
     url='https://github.com/ferreirad08/run-octave',
