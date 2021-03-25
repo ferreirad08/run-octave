@@ -11,7 +11,7 @@ A package to run Octave functions and scripts in the Python interpreter!
 
 ## Installation
 
-Simply install run-octave module from [PyPI](https://pypi.org/project/run-octave/)
+Simply install run-octave package from [PyPI](https://pypi.org/project/run-octave/)
 
     pip install run-octave
 
