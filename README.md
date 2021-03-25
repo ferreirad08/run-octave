@@ -4,12 +4,11 @@
 
 A package to run Octave functions and scripts in the Python interpreter!
 
-## Requirements
-* [Python 3](https://www.python.org/)
-* [scipy](https://www.scipy.org/)
-* [GNU Octave](https://www.gnu.org/software/octave/index) (**Nota**: install in advance)
+## Nota
+* Install in advance the [GNU Octave](https://www.gnu.org/software/octave/index).
 
 ## Requirements
+* `python 3`
 * `scipy`
 
 ## Installation
