@@ -4,7 +4,7 @@
 
 A package for running Octave functions and calling Scripts in the Python interpreter!
 
-## Nota
+## Note
 * Install [GNU Octave](https://www.gnu.org/software/octave/index).
 
 ## Requirements
