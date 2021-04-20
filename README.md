@@ -1,6 +1,7 @@
 # run-octave
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ferreirad08/run-octave/blob/main/LICENSE)
+[![PyPI version](https://badge.fury.io/py/keras-video-generators.svg)](https://pypi.org/project/keras-video-generators/)
 
 A package for running Octave functions and calling Scripts in the Python interpreter!
 
