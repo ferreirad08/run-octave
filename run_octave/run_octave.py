@@ -47,6 +47,7 @@ class RunOctave:
 
         data = loadmat(self.tempdata_path)  # Read the communication channel
 
-        ret = [data[key] for key in self.alphabet[:nargout]]
-
-        return ret
+        if nargout == 1:
+            return data['a']
+        else:
+            return [data[key] for key in self.alphabet[:nargout]]
