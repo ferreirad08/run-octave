@@ -4,7 +4,7 @@ from os import path, system
 
 class RunOctave:
 
-    __version__ = '1.0.2'
+    __version__ = '1.0.3'
 
     def __init__(self, octave_path):
         self.octave_path = octave_path.replace(' ','" "')
@@ -13,9 +13,25 @@ class RunOctave:
 
         # Getting PATH of temp files
         self.lib_path = path.split(path.abspath(__file__))[0]
-        # print(self.lib_path)
+        print(self.lib_path)
         self.tempdata_path = path.join(self.lib_path, 'tempdata.mat').replace('\\','/')
         self.tempscript_path = path.join(self.lib_path, 'tempscript.m').replace('\\','/')
+
+
+    def output_formatter(self, nargout, data):
+        ret = []
+        for key in self.alphabet[:nargout]:
+            value = data[key]
+            if value.shape == (1, 1):
+                ret.append(value[0][0])
+            else:
+                ret.append(value)
+
+        if nargout == 1:
+            return ret[0]
+        else:
+            return ret
+        pass
 
 
     def run(self, target, args=None, nargout=0):
@@ -47,15 +63,4 @@ class RunOctave:
 
         data = loadmat(self.tempdata_path)  # Read the communication channel
 
-        ret = []
-        for key in self.alphabet[:nargout]:
-            value = data[key]
-            if value.shape == (1, 1):
-                ret.append(value[0][0])
-            else:
-                ret.append(value)
-
-        if nargout == 1:
-            return ret[0]
-        else:
-            return ret
+        return self.output_formatter(nargout, data)
