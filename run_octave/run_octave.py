@@ -47,16 +47,15 @@ class RunOctave:
 
         data = loadmat(self.tempdata_path)  # Read the communication channel
 
-        if nargout == 1:
-            if data['a'].shape == (1, 1):
-                return data['a'][0][0]
+        ret = []
+        for key in self.alphabet[:nargout]:
+            value = data[key]
+            if value.shape == (1, 1):
+                ret.append(value[0][0])
             else:
-                return data['a']
+                ret.append(value)
+
+        if nargout == 1:
+            return ret[0]
         else:
-            ret = []
-            for key in self.alphabet[:nargout]:
-                if data[key].shape == (1, 1):
-                    ret.append(data[key][0][0])
-                else:
-                    ret.append(data[key])
             return ret
