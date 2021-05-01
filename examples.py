@@ -17,6 +17,9 @@ print(sz)
 m, n = octave.run(nargout=2, target='size', args=(A,))
 print(m, n)
 
+m = octave.run(nargout=1, target='size', args=(A, 1))
+print(m)
+
 N = octave.run(nargout=1, target='vecnorm', args=(A, 2, 2))
 print(N)
 
