@@ -38,9 +38,9 @@ class RunOctave:
     def mat_file(self, nargout, syntax):
         # Auxiliary function
         with open(self.tempscript_path, 'w') as MAT_file:
-            print(f'load("{self.tempdata_path}")', file=MAT_file)
-            print(f'{syntax}', file=MAT_file)
-            print(f'save("-mat-binary","{self.tempdata_path}")', file=MAT_file)
+            print('load("' + self.tempdata_path + '")', file=MAT_file)
+            print(syntax, file=MAT_file)
+            print('save("-mat-binary","' + self.tempdata_path + '")', file=MAT_file)
 
         # Executes the auxiliary function
         system(self.octave_path + ' ' + self.tempscript_path)
@@ -70,6 +70,6 @@ class RunOctave:
 
         if nargout > 0:
             varargout = self.CSL[:nargout*2-1]
-            syntax = '[' + varargout + ']=' + syntax
+            syntax = '[' + varargout + '] = ' + syntax
 
         return self.mat_file(nargout, syntax)
