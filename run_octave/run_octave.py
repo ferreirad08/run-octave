@@ -9,11 +9,13 @@ class RunOctave:
     def __init__(self, octave_path):
         self.octave_path = octave_path.replace(' ','" "')
         self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
-        self.CSL = ','.join(self.alphabet)  # Comma-separated letters
+
+        # Comma-separated letters
+        self.CSL = ','.join(self.alphabet)
 
         # Getting PATH of temp files
         self.lib_path = path.split(path.abspath(__file__))[0]
-        print(self.lib_path)
+        # print(self.lib_path)
         self.tempdata_path = path.join(self.lib_path, 'tempdata.mat').replace('\\','/')
         self.tempscript_path = path.join(self.lib_path, 'tempscript.m').replace('\\','/')
 
@@ -31,7 +33,22 @@ class RunOctave:
             return ret[0]
         else:
             return ret
-        pass
+
+
+    def mat_file(self, nargout, syntax):
+        # Auxiliary function
+        with open(self.tempscript_path, 'w') as MAT_file:
+            print(f'load("{self.tempdata_path}")', file=MAT_file)
+            print(f'{syntax}', file=MAT_file)
+            print(f'save("-mat-binary","{self.tempdata_path}")', file=MAT_file)
+
+        # Executes the auxiliary function
+        system(self.octave_path + ' ' + self.tempscript_path)
+
+        # Read the communication channel
+        data = loadmat(self.tempdata_path)
+
+        return self.output_formatter(nargout, data)
 
 
     def run(self, target, args=None, nargout=0):
@@ -55,12 +72,4 @@ class RunOctave:
             varargout = self.CSL[:nargout*2-1]
             syntax = '[' + varargout + ']=' + syntax
 
-        # Auxiliary function
-        with open(self.tempscript_path, 'w') as MAT_file:
-            print(f'load("{self.tempdata_path}")\n{syntax}\nsave("-mat-binary","{self.tempdata_path}")', file=MAT_file)
-
-        system(self.octave_path + ' ' + self.tempscript_path)  # Executes the auxiliary function
-
-        data = loadmat(self.tempdata_path)  # Read the communication channel
-
-        return self.output_formatter(nargout, data)
+        return self.mat_file(nargout, syntax)
