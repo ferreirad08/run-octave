@@ -32,4 +32,10 @@ print(X)
 
 octave.run("S = 'Hello World.'; disp(S)")
 
+octave.run('''
+A = [1 2; 3 4]
+size(A)
+B = A + 2
+''')
+
 octave.run(target='ones(4, 3) * 255')  # Expression without semicolon
