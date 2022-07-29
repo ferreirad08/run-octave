@@ -46,10 +46,8 @@ Simply install run-octave package from [PyPI](https://pypi.org/project/run-octav
     X = octave.run(nargout=1, target='ones(4, 3) * 255;')
     print(X)
 
-    octave.run(
-    """
+    octave.run("""
     A = [1 2; 3 4]
     size(A)
     B = A + 2
-    """
-    )
+    """)
