@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ferreirad08/run-octave/blob/main/LICENSE)
 [![PyPI version](https://badge.fury.io/py/run-octave.svg)](https://badge.fury.io/py/run-octave)
+[![Downloads](https://pepy.tech/badge/run-octave/month)](https://pepy.tech/project/run-octave)
 
 A package for running Octave functions and calling Scripts in the Python interpreter!
 
