@@ -28,10 +28,12 @@ Simply install run-octave package from [PyPI](https://pypi.org/project/run-octav
     #octave = RunOctave(octave_path='C:/Program Files/GNU Octave/Octave-6.2.0/mingw64/bin/octave-gui.exe')
     octave = RunOctave(octave_path='C:/Octave/Octave-5.2.0/mingw64/bin/octave-gui.exe')
 
-    A = np.array([[ 2, 0, 1],
-                  [-1, 1, 0],
-                  [-1, 1, 0],
-                  [-3, 3, 0]])
+    A = np.array(
+        [[ 2, 0, 1],
+         [-1, 1, 0],
+         [-1, 1, 0],
+         [-3, 3, 0]]
+    )
 
     # Start Testing
     m, n = octave.run(nargout=2, target='size', args=(A,))
