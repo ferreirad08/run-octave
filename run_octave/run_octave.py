@@ -19,21 +19,15 @@ class RunOctave:
         self.tempdata_path = path.join(self.lib_path, "tempdata.mat").replace("\\","/")
         self.tempscript_path = path.join(self.lib_path, "tempscript.m").replace("\\","/")
 
-
     def output_formatter(self, nargout, data):
         ret = []
         for key in self.alphabet[:nargout]:
             value = data[key]
             if value.shape == (1, 1):
-                ret.append(value[0][0])
-            else:
-                ret.append(value)
+                value = value[0][0]
+            ret.append(value)
 
-        if nargout == 1:
-            return ret[0]
-        else:
-            return ret
-
+        return ret[0] if nargout == 1 else ret
 
     def mat_file(self, nargout, syntax):
         # Auxiliary function
@@ -50,7 +44,6 @@ class RunOctave:
 
         return self.output_formatter(nargout, data)
 
-
     def run(self, target, args=None, nargout=0):
         if isinstance(args, tuple):
             nargin = len(args)
@@ -60,10 +53,9 @@ class RunOctave:
             # Write in the communication channel
             savemat(self.tempdata_path, dict(zip(self.alphabet[:nargin], args)))
         else:
-            if any(c in target for c in "[]=(,) '+-*/:"):
-                syntax = target
-            else:
-                syntax = target + "();"
+            syntax = target
+            if all(c not in target for c in "[]=(,) '+-*/:"):
+                syntax += "();"
 
             # Write in the communication channel
             savemat(self.tempdata_path, {"None": []})
