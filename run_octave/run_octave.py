@@ -5,10 +5,10 @@ from os import path, system
 class RunOctave:
 
     __version__ = "1.0.3"
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
 
     def __init__(self, octave_path):
         self.octave_path = octave_path.replace(" ","' '")
-        self.alphabet = "abcdefghijklmnopqrstuvwxyz"
 
         # Comma-separated letters
         self.CSL = ",".join(self.alphabet)
