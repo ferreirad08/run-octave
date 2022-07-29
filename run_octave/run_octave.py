@@ -19,6 +19,9 @@ class RunOctave:
         self.tempdata_path = self.lib_path + "/tempdata.mat"
         self.tempscript_path = self.lib_path + "/tempscript.m"
 
+    def value_formatter(self, value):
+        return value[0][0] if value.shape == (1, 1) else value
+
     def run(self, target, args=None, nargout=0):
         syntax = target
         data_send = {"None": []}
@@ -53,11 +56,6 @@ class RunOctave:
         data = loadmat(self.tempdata_path)
 
         # Output formatter
-        ret = []
-        for key in self.alphabet[:nargout]:
-            value = data[key]
-            if value.shape == (1, 1):
-                value = value[0][0]
-            ret.append(value)
-
-        return ret[0] if nargout == 1 else ret
+        if nargout == 1:
+            return self.value_formatter(data["a"])
+        return [self.value_formatter(data[key]) for key in self.alphabet[:nargout]]
