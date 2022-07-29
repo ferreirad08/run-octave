@@ -14,12 +14,45 @@ class RunOctave:
         self.CSL = ",".join(self.alphabet)
 
         # Getting PATH of temp files
-        self.lib_path = path.split(path.abspath(__file__))[0]
+        self.lib_path = path.split(path.abspath(__file__))[0].replace("\\","/")
         # print(self.lib_path)
-        self.tempdata_path = path.join(self.lib_path, "tempdata.mat").replace("\\","/")
-        self.tempscript_path = path.join(self.lib_path, "tempscript.m").replace("\\","/")
+        self.tempdata_path = self.lib_path + "/tempdata.mat"
+        self.tempscript_path = self.lib_path + "/tempscript.m"
 
-    def output_formatter(self, nargout, data):
+    def run(self, target, args=None, nargout=0):
+        syntax = target
+        data_send = {"None": []}
+
+        # Verifying output arguments
+        if nargout > 0:
+            varargout = self.CSL[:nargout*2-1]
+            syntax = "[" + varargout + "]=" + syntax
+
+        # Verifying input arguments
+        if isinstance(args, tuple):
+            nargin = len(args)
+            varargin  = self.CSL[:nargin*2-1]
+            syntax += "(" + varargin + ");"
+            data_send = dict(zip(self.alphabet[:nargin], args))
+        elif all(c not in target for c in "[]=(,) '+-*/:"):
+            syntax += "();"
+
+        # Write in the communication channel
+        savemat(self.tempdata_path, data_send)
+
+        # Auxiliary script
+        with open(self.tempscript_path, "w") as MAT_file:
+            print("load('" + self.tempdata_path + "')", file=MAT_file)
+            print(syntax, file=MAT_file)
+            print("save('-mat-binary','" + self.tempdata_path + "')", file=MAT_file)
+
+        # Executes the auxiliary script
+        system(self.octave_path + " " + self.tempscript_path)
+
+        # Read the communication channel
+        data = loadmat(self.tempdata_path)
+
+        # Output formatter
         ret = []
         for key in self.alphabet[:nargout]:
             value = data[key]
@@ -28,40 +61,3 @@ class RunOctave:
             ret.append(value)
 
         return ret[0] if nargout == 1 else ret
-
-    def mat_file(self, nargout, syntax):
-        # Auxiliary function
-        with open(self.tempscript_path, "w") as MAT_file:
-            print("load('" + self.tempdata_path + "')", file=MAT_file)
-            print(syntax, file=MAT_file)
-            print("save('-mat-binary','" + self.tempdata_path + "')", file=MAT_file)
-
-        # Executes the auxiliary function
-        system(self.octave_path + " " + self.tempscript_path)
-
-        # Read the communication channel
-        data = loadmat(self.tempdata_path)
-
-        return self.output_formatter(nargout, data)
-
-    def run(self, target, args=None, nargout=0):
-        if isinstance(args, tuple):
-            nargin = len(args)
-            varargin  = self.CSL[:nargin*2-1]
-            syntax = target + "(" + varargin + ");"
-
-            # Write in the communication channel
-            savemat(self.tempdata_path, dict(zip(self.alphabet[:nargin], args)))
-        else:
-            syntax = target
-            if all(c not in target for c in "[]=(,) '+-*/:"):
-                syntax += "();"
-
-            # Write in the communication channel
-            savemat(self.tempdata_path, {"None": []})
-
-        if nargout > 0:
-            varargout = self.CSL[:nargout*2-1]
-            syntax = "[" + varargout + "] = " + syntax
-
-        return self.mat_file(nargout, syntax)
